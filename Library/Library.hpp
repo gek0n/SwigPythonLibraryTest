@@ -58,5 +58,31 @@ public:
 private:
   Struct1 field2;
 };
-} // namespace LibraryNamespace
 
+template <typename T1> void func7(T1 arg) {
+  std::cout << "<func7> Template argument<" << typeid(T1).name() << ">: " << arg
+            << std::endl;
+}
+
+template <typename T1, typename T2> class Class3 {
+public:
+  Class3(T1 arg1, T2 arg2) : field1(arg1), field2(arg2) {
+    std::cout << "<Class3 " << this << "> Constructing" << std::endl;
+  }
+
+  ~Class3() { std::cout << "<Class3 " << this << "> Destroying" << std::endl; }
+
+  std::string toString() const {
+    std::stringstream ss;
+    ss << "<Class3 " << this << "> Template 1 argument<" << typeid(T1).name()
+       << ">: " << field1;
+    ss << " Template 2 argument<" << typeid(T2).name() << ">: " << field2;
+    return ss.str();
+  }
+
+private:
+  T1 field1;
+  T2 field2;
+};
+
+} // namespace LibraryNamespace
