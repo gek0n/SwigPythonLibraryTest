@@ -16,3 +16,4 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 add_subdirectory(Library)
 add_subdirectory(Application)
+add_subdirectory(Swig)
